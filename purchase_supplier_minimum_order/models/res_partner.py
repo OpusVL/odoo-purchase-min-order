@@ -29,7 +29,6 @@ class ResPartner(models.Model):
     minimum_purchase_order_value = fields.Float(
         required=True,
         default=0.0,
-        string='Menu Price',
         digits_compute=dp.get_precision('Product Price'),
     )
 
