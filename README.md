@@ -3,7 +3,7 @@ odoo-purchase-min-order
 
 Modules to manage minimum order values on purchases.
 
-# purchase\_supplier\_minimum\_order
+## purchase\_supplier\_minimum\_order
 
 Configure a supplier with a minimum order value, and prevent Requests for Quotation
 with a total value below that value from being converted to a Purchase Order.
