@@ -27,7 +27,7 @@ class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
 
     is_below_minimum_order = fields.Boolean(
-        compute='_compute_minimum_order',
+        compute='_compute_minimum_order_fields',
     )
 
     minimum_value = fields.Float(
@@ -45,8 +45,8 @@ class PurchaseOrder(models.Model):
 
 
     @api.one
-    @api.depends('minimum_order', 'amount_total')
-    def _compute_minimum_order(self):
-        self.is_below_minimum_order = self.amount_total < self.partner_id.minimum_purchase_order_value
+    @api.depends('minimum_value', 'amount_total')
+    def _compute_minimum_order_fields(self):
+        self.is_below_minimum_order = self.amount_total < self.minimum_value
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
