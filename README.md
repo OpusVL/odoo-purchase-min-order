@@ -8,8 +8,6 @@ Modules to manage minimum order values on purchases.
 Configure a supplier with a minimum order value, and prevent Requests for Quotation
 with a total value below that value from being converted to a Purchase Order.
 
-WORK IN PROGRESS: NOT YET FUNCTIONAL
-
 # Copyright and License
 
 Copyright (C) 2016 OpusVL
