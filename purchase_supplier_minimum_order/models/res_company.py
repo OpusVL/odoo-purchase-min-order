@@ -20,36 +20,23 @@
 #
 ##############################################################################
 
+from openerp import models, fields, api
 
-{
-    'name': 'Set minimum order on suppliers',
-    'version': '0.1',
-    'author': 'OpusVL',
-    'website': 'http://opusvl.com/',
-    'summary': 'Disallow confirmation of PO with minimum purchase order smaller than defined value for supplier',
-    
-    'category': 'Purchasing',
-    
-    'description': """Disallow confirmation of PO with minimum purchase order smaller than defined value for supplier,
-""",
-    'images': [
-    ],
-    'depends': [
-        'base',
-        'purchase',
-    ],
-    'data': [
-        'views/res_company.xml',
-        'views/res_partner.xml',
-    ],
-    'demo': [
-    ],
-    'test': [
-    ],
-    'license': 'AGPL-3',
-    'installable': True,
-    'auto_install': False,
+class ResCompany(models.Model):
+    _inherit = 'res.company'
 
-}
+    purchase_min_supplier_order_mode = fields.Selection(
+        lambda rs: rs._purchase_min_supplier_order_modes(),
+        default=lambda rs: 'enforcing',
+        required=True,
+        string="Minimum PO value mode",
+    )
+
+    @api.model
+    def _purchase_min_supplier_order_modes(self):
+        return [
+            ('enforcing', 'Enforcing'),
+            ('advisory', 'Advisory'),
+        ]
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
