@@ -37,7 +37,7 @@ class PurchaseOrder(models.Model):
 
     @api.one
     def wkf_confirm_order(self):
-        if self.is_below_minimum_order:
+        if self.company_id.purchase_min_supplier_order_mode == 'enforcing' and self.is_below_minimum_order:
             raise UserError(
                 'Cannot confirm order {} because the total value is below the minimum order of {} for supplier {}'.format(
                     self.name, self.minimum_value, self.partner_id.name))

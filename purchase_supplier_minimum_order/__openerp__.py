@@ -41,6 +41,7 @@
     'data': [
         'views/res_company.xml',
         'views/res_partner.xml',
+        'views/purchase.xml',
     ],
     'demo': [
     ],
