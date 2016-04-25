@@ -30,7 +30,10 @@
     
     'category': 'Purchasing',
     
-    'description': """Disallow confirmation of PO with minimum purchase order smaller than defined value for supplier,
+    'description': """Disallow confirmation of PO with minimum purchase order smaller than defined value for supplier.
+
+    You can switch this into advisory mode for your company from the Configuration tab of
+    Settings -> Your Company
 """,
     'images': [
     ],
